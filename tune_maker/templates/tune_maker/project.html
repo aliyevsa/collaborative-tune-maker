@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "./template_head_content.html" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js"></script>
+    <script src="/static/js/project.js" defer></script>
+</head>
+<body>
+    {% include "./template_project_header.html" %}
+    <main>
+        <div class="container top">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Name: <b id="project-name">{{ project.name }}</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">ID: <b id="project-id">{{ project.id }}</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Length: <b id="project-length">{{ project.length }}</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Owner: <b>{{ project.owner.username }}</b></a>
+                        </li>
+                    {% if project.collaborator %}
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Collaborator: <b>{{ project.collaborator.username }}</b></a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </main>
+    {% include "./template_footer.html" %}
+</body>
+</html>

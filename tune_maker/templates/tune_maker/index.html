@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "./template_head_content.html" %}
+    <script src="/static/js/index.js" defer></script>
+</head>
+<body>
+    {% include "./template_header.html" %}
+    <main>
+        <div class="container top">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>About Collaborative Tune Maker</h1>
+                    <p>It is a web application where people can collaboratively make music. The main features are:</p>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                User accounts
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                The application requires creating an account.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Multiple projects
+                            </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Users are able to create and store multiple projects.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Invitations
+                            </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Users are able to invite another user to a music project, and work on it with them.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Instant edits
+                            </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Any edit to a project is saved, and also sent to another user working on the same project instantly, if there is one.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Discussions
+                            </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Each project has its own section for discussing the project, so that the discussions are organised around projects.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Play/stop
+                            </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Users are able to play and stop the song on their end, individually.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                Simple and intuitive design
+                            </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                The design is welcoming for a wide range of users.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                Sharing projects
+                            </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Users can share the URL of their project so that anyone can view and listen to it.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <p>Please enter the ID of the project you want to view:</p>
+                    <div class="input-group">
+                        <input type="number" id="public-project-id" class="form-control" placeholder="Project ID must be an integer.">
+                        <button type="submit" id="public-project-id-submit" class="btn btn-outline-secondary">Load Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include "./template_footer.html" %}
+</body>
+</html>

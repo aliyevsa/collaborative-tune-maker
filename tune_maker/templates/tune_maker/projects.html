@@ -1,0 +1,72 @@
+{% extends "./template.html" %}
+{% block main_content %}
+
+<div class="container top">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <h2>Create New Project</h2>
+                <form action="/projects/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_name">Project Name:</label>
+                        <input type="text" class="form-control" name="name" value="New Project" maxlength="64" required="" id="id_name">
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="id_length">Project Length:</label>
+                        <input type="number" class="form-control" name="length" value="16" required="" id="id_length">
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="id_collaborator">Collaborator Username:</label>
+                        <input type="text" class="form-control" name="collaborator" maxlength="16" id="id_collaborator">
+                    </div>
+                    <br/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <br/>
+            <div>
+                <h2>Owned Projects</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Project</th>
+                        <th>Length</th>
+                        <th>Owner</th>
+                        <th>Collaborator</th>
+                    </tr>
+                    {% for project in owned_projects %}
+                        <tr>
+                            <td><a href="/project/{{ project.pk }}">{{ project.name }}</a></td>
+                            <td>{{ project.length }}</td>
+                            <td>{{ project.owner.username }}</td>
+                            <td>{{ project.collaborator.username }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Collaborated Projects</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Project</th>
+                    <th>Length</th>
+                    <th>Owner</th>
+                    <th>Collaborator</th>
+                </tr>
+                {% for project in collaborated_projects %}
+                    <tr>
+                        <td><a href="/project/{{ project.pk }}">{{ project.name }}</a></td>
+                        <td>{{ project.length }}</td>
+                        <td>{{ project.owner.username }}</td>
+                        <td>{{ project.collaborator.username }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+<header>
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><b>CTM</b></a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/projects/">My Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout/">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/discussion/{{ project.pk }}">Discuss {{ project.name }}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register/">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <button id="play-button" class="btn btn-primary">⏵ Play</button>
+            </div>
+            {% if user.is_authenticated %}
+                <span class="navbar-text">Logged in as <b id="username">{{ user.username }}</b></span>
+            {% endif %}
+        </div>
+    </nav>
+</header>

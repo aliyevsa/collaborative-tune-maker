@@ -1,0 +1,51 @@
+{% extends "./template.html" %}
+{% block main_content %}
+
+<div class="d-flex align-items-center min-vh-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% if registered %}
+                    <p>Thanks for registering! Please login using your user credentials:</p>
+                    <form action="/login/" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">Username:</label>
+                            <input type="text" class="form-control" name="username" maxlength="150" required="" id="id_username">
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="id_password">Password:</label>
+                            <input type="password" class="form-control" name="password" required="" id="id_password">
+                        </div>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                {% else %}
+                    <h1>Register</h1>
+                    <form method="post" action="/register/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">Username:</label>
+                            <input type="text" class="form-control" name="username" maxlength="150" required="" id="id_username">
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="id_email">Email address:</label>
+                            <input type="email" class="form-control" name="email" maxlength="254" id="id_email">
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="id_password">Password:</label>
+                            <input type="password" class="form-control" name="password" required="" id="id_password">
+                        </div>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
